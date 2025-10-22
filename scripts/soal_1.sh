@@ -37,7 +37,9 @@ iface eth0 inet static
     address 10.64.1.3
     netmask 255.255.255.0
     gateway 10.64.1.1
-    dns-nameservers 10.64.3.6 10.64.3.5 192.168.122.1
+    up echo "nameserver 10.64.3.6" > /etc/resolv.conf
+    up echo "nameserver 10.64.3.5" >> /etc/resolv.conf
+    up echo "nameserver 192.168.122.1" >> /etc/resolv.conf
     
 
 # Config Maglor
