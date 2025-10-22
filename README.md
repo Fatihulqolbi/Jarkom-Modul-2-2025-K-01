@@ -132,6 +132,7 @@ iface eth0 inet static
 ```
 
 ## HASIL TOPOLOGI
+<img width="1395" height="807" alt="Screenshot 2025-10-22 231248" src="https://github.com/user-attachments/assets/a7a5dc92-e575-4cf7-8a72-386c60b2e19c" />
 
 
 
