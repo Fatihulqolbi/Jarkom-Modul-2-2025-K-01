@@ -25,7 +25,12 @@ location /static/ {
         proxy_set_header X-Real-IP $remote_addr;
     }
 ```
-`location /static/`: Mencocokkan setiap permintaan yang URL-nya diawali dengan `/static/`. `proxy_pass http://lindon.K01.com/;`: Ini adalah perintah inti reverse proxy. Nginx akan mengambil permintaan klien dan meneruskannya ke alamat `http://lindon.K01.com/`. Tanda `/` di akhir URL `proxy_pass` penting untuk memetakan path dengan benar.
+`location /static/`: Mencocokkan setiap permintaan yang URL-nya diawali dengan `/static/`. 
+
+`proxy_pass http://lindon.K01.com/;`: Ini adalah perintah inti reverse proxy. Nginx akan mengambil permintaan klien dan meneruskannya ke alamat `http://lindon.K01.com/`. Tanda `/` di akhir URL `proxy_pass` penting untuk memetakan path dengan benar.
+
 `proxy_set_header Host $host;`: Memenuhi syarat penerusan header Host. Ini mengambil header Host asli dari permintaan klien (misalnya, `www.K01.com`) dan meneruskannya ke Lindon.
+
 `proxy_set_header X-Real-IP $remote_addr;`: Memenuhi syarat penerusan `X-Real-IP`. Ini membuat header baru bernama `X-Real-IP` yang diisi dengan alamat IP asli klien (tersimpan di variabel Nginx `$remote_addr`), sehingga Lindon dapat mengetahui siapa pengunjung aslinya.
+
 Blok `location /app/ { ... }` bekerja dengan cara yang sama, namun mengarahkan lalu lintas ke `http://vingilot.K01.com/` sesuai permintaan soal.
